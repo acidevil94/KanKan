@@ -25,3 +25,9 @@ hs_err_pid*
 
 
 target/
+
+# Eclipse IDE files
+.classpath
+.factorypath
+.project
+*.prefs
