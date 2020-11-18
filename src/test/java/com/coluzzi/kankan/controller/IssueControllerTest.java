@@ -10,6 +10,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import lombok.SneakyThrows;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class IssueControllerTest {
@@ -20,7 +22,10 @@ public class IssueControllerTest {
 
 
     @Test
-    public void getHello() throws Exception {
+    @SneakyThrows
+    public void getHello() {
+
+
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                                                     .andExpect(MockMvcResultMatchers.status().isOk())
                                                     .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("Hello!")));
