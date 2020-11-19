@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.coluzzi.kankan.controller.util.ControllerConstants;
 
-import com.coluzzi.kankan.model.Issue;
+import com.coluzzi.kankan.model.issue.Issue;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class IssueController {
 
 
-    @GetMapping(ControllerConstants.ISSUE_URL)
+    @GetMapping(ControllerConstants.URL_ISSUE)
     public List<Issue> getIssues() {
         return new ArrayList<>();
     }
