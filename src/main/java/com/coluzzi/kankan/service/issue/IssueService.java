@@ -6,7 +6,7 @@ import com.coluzzi.kankan.model.issue.Issue;
 
 public class IssueService {
 
-    public List<Issue> searchBy(IssueSearch search) {
+    public List<Issue> searchBy(String search) {
         return null;
     }
 

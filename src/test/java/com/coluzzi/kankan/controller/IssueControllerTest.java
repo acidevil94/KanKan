@@ -20,7 +20,6 @@ import java.util.List;
 
 import com.coluzzi.kankan.controller.util.ControllerConstants;
 import com.coluzzi.kankan.model.issue.Issue;
-import com.coluzzi.kankan.service.issue.IssueSearch;
 import com.coluzzi.kankan.service.issue.IssueService;
 
 import lombok.SneakyThrows;
@@ -54,22 +53,19 @@ public class IssueControllerTest {
     @Test
     @SneakyThrows
     public void getIssueBySearchTest() {
-        IssueSearch search = IssueSearch.builder()
-                    .issueDescription("Test Issue")
-                    .build();
 
         List<Issue> response = new ArrayList<>();
 
 
         response.add(Issue.builder()
-                            .id(5L)
+                            .id(5)
                             .title("Issue Title Test")
                             .description("Test Issue")
                             .build()
                             );
 
         
-        when(issueService.searchBy(search))
+        when(issueService.searchBy("Test Issue"))
                         .thenReturn(response);
 
 
