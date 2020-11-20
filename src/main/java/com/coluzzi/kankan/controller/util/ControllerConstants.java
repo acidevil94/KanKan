@@ -14,7 +14,4 @@ public class ControllerConstants {
     public static final String REQUEST_KEY_DESCRIPTION = "issueDescription";
 
 
-    // Application REST Response keys
-    public static final String RESPONSE_KEY_ISSUES = "issues";
-    public static final String RESPONSE_KEY_ISSUE_ID = "issueID";
 }

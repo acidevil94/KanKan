@@ -10,7 +10,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.hamcrest.Matchers.is;
 
 import static org.mockito.Mockito.when;
@@ -41,8 +40,6 @@ public class IssueControllerTest {
     public IssueService issueService;
 
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
 
     @BeforeEach
     public void setUp() {
@@ -52,7 +49,7 @@ public class IssueControllerTest {
 
     @Test
     @SneakyThrows
-    public void getIssueBySearchTest() {
+    public void getIssueByDescriptionTest() {
 
         List<Issue> response = new ArrayList<>();
 
@@ -65,14 +62,13 @@ public class IssueControllerTest {
                             );
 
         
-        when(issueService.searchBy("Test Issue"))
+        when(issueService.findIssues("Test Issue"))
                         .thenReturn(response);
 
 
         mvcMock.perform(MockMvcRequestBuilders.get(ControllerConstants.URL_ISSUE)
                                 .param(ControllerConstants.REQUEST_KEY_DESCRIPTION, "Test Issue"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$." + ControllerConstants.RESPONSE_KEY_ISSUES + "[0]." + 
-                                                ControllerConstants.RESPONSE_KEY_ISSUE_ID, is(5)));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.issues[0].id", is(5)));
     }
 }

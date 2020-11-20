@@ -51,11 +51,7 @@
             <version>${hikari.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+     
 
         <dependency>
             <groupId>com.h2database</groupId>
@@ -84,6 +80,8 @@
             <version>${spring-test-dbunit.version}</version>
             <scope>test</scope>
         </dependency>
+
+      
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

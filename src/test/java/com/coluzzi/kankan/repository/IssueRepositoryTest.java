@@ -3,8 +3,6 @@ package com.coluzzi.kankan.repository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
-
 import com.coluzzi.kankan.model.issue.Issue;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
@@ -37,11 +35,11 @@ public class IssueRepositoryTest {
 
     @Test
     @DatabaseSetup("/dataset/issues/singular_issue.xml")
-    public void testFindByDescription() {
-        List<Issue> issues = this.issueRepository.findByDescription("Test Issue");
-        assertTrue(issues.size() == 1);
+    public void testFindAllDescription() {
+        Iterable<Issue> issues = this.issueRepository.findAll();
+        assertTrue(issues.iterator().hasNext());
 
-        Issue singular = issues.get(0);
+        Issue singular = issues.iterator().next();
 
         Issue expected = Issue.builder()
                                 .id(5)
